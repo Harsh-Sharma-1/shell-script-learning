@@ -1,10 +1,15 @@
 #!/bin/bash
+
+echo "Reading user input"
+
+read -p "Please enter your password: " user_pwd
+
+echo "thanks for your password $user_pwd"
+
+
 echo "Setup and configure server"
-
 file_name=config.yaml
-
 config_dir=$1
-
 if [ -d "$config_dir" ]
 then
 	echo "reading config directory contents"
@@ -14,9 +19,7 @@ else
 	mkdir "$config_dir"
 	touch "$config_dir/config.sh"
 fi
-
 user_group=$2
-
 if [ "$user_group" == "harsh"  ]
 then
 	echo "configure the server"
@@ -26,6 +29,5 @@ then
 else 
 	echo "no permission to configure server. wrong user group"
 fi
-
 echo "using file $file_name to configure something"
 echo "here are all configuration files: $config_files"
